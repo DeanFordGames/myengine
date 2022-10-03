@@ -1,9 +1,14 @@
 #include <memory>
 
-struct Core
+namespace myengine
 {
-	static std::shared_ptr<Core> initialize();
 
-private:
-	int m_dummy;
-};
+	struct Core
+	{
+		static std::shared_ptr<Core> initialize();
+
+	private:
+		int m_dummy;
+	};
+
+}
