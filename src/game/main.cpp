@@ -1,8 +1,8 @@
-#include <iostream>
+#include <myengine/myengine.h>
 
 int main()
 {
-	std::cout << "Hello World" << std::endl;
+	std::shared_ptr<Core> core = Core::initialize();
 
 	return 0;
 }
