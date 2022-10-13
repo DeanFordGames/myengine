@@ -1,5 +1,5 @@
 #include <memory>
-#include <vector>
+#include <list>
 
 namespace myengine
 {
@@ -17,7 +17,7 @@ namespace myengine
 
 	private:
 		bool m_running;
-		std::vector<std::shared_ptr<Entity> > m_entities;
+		std::list<std::shared_ptr<Entity> > m_entities;
 	};
 
 }

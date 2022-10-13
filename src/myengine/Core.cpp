@@ -17,7 +17,7 @@ namespace myengine
 
 		while (m_running)
 		{
-			for (std::vector<std::shared_ptr<Entity> >::iterator it = m_entities.begin();
+			for (auto it = m_entities.begin(); //auto = std::list<std::shared_ptr<Entity> >::iterator
 				it != m_entities.end(); ++it)
 			{
 				(*it)->tick();
