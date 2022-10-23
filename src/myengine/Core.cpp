@@ -64,6 +64,7 @@ namespace myengine
 				(*it)->tick();
 			}
 
+
 			rend::Renderer r(INITIAL_WIDTH, INITIAL_HEIGHT);
 			r.clear();
 

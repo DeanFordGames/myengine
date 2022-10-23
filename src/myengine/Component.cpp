@@ -16,4 +16,8 @@ namespace myengine
 		onDisplay();
 	}
 
+	void Component::kill()
+	{
+
+	}
 }

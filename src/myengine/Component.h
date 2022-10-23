@@ -14,6 +14,8 @@ namespace myengine
 		void tick();
 		void display();
 
+		void kill();
+
 		friend struct Entity;
 	};
 }
