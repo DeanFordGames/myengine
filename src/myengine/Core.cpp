@@ -64,6 +64,19 @@ namespace myengine
 				(*it)->tick();
 			}
 
+			auto itr = m_entities.begin();
+			while (itr != m_entities.end())
+			{
+				if ((*itr)->alive())
+				{
+					itr++;
+				}
+				else
+				{
+					itr = m_entities.erase(itr);
+				}
+			}
+
 
 			rend::Renderer r(INITIAL_WIDTH, INITIAL_HEIGHT);
 			r.clear();

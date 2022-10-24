@@ -18,6 +18,10 @@ namespace myengine
 			return rtn;
 		}
 
+		Entity() { m_alive = true; }
+
+		bool alive() { return m_alive; }
+
 		void tick();
 		void display();
 		void kill();
