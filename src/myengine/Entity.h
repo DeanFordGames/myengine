@@ -18,7 +18,9 @@ namespace myengine
 			return rtn;
 		}
 
-		Entity() { m_alive = true; }
+		Entity() { 
+			m_alive = true; 
+		}
 
 		bool alive() { return m_alive; }
 
