@@ -12,7 +12,7 @@ namespace myengine
 		std::shared_ptr<T> addComponent()
 		{
 			std::shared_ptr<T> rtn = std::make_shared<T>();
-
+			rtn->m_entity = m_self;
 			m_components.push_back(rtn);
 
 			return rtn;
@@ -32,6 +32,8 @@ namespace myengine
 		std::vector<std::shared_ptr<Component> > m_components;
 
 		bool m_alive;
+
+		std::weak_ptr<Entity> m_self;
 
 		friend struct Core;
 	};

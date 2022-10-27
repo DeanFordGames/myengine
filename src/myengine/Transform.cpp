@@ -16,8 +16,6 @@ namespace myengine
 
 		_model_matrix = glm::translate(_model_matrix, _position);
 		_model_matrix = glm::rotate(_model_matrix, glm::radians(1.0f), _rotation);
-
-
 	}
 
 }
