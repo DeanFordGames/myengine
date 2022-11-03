@@ -26,11 +26,20 @@ namespace myengine
 		if (!m_alive) return;
 
 		m_alive = false;
+	}
 
+	template <typename T>
+	std::shared_ptr<T> Entity::getComponent()
+	{
 		for (std::vector<std::shared_ptr<Component>>::iterator it = m_components.begin();
 			it != m_components.end(); ++it)
 		{
-			(*it)->kill();
+			if (std::dynamic_pointer_cast<T>((*it)))
+			{
+				return (*it);
+			}
 		}
+
+		return nullptr;
 	}
 }

@@ -16,8 +16,6 @@ namespace myengine
 		r.shader(&m_shader);
 		r.mesh(&m_mesh);
 
-		
-
 		r.render();
 	}
 

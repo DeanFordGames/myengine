@@ -22,6 +22,9 @@ namespace myengine
 			m_alive = true; 
 		}
 
+		template <typename T>
+		std::shared_ptr<T> getComponent();
+
 		bool alive() { return m_alive; }
 
 		void tick();

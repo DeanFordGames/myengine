@@ -8,7 +8,7 @@ namespace myengine
 	{
 		Transform();
 
-		glm::mat4 GetModelMatrix() { return _model_matrix; }
+		void ChangePosition(glm::vec3 _pos) { _position += _pos; }
 
 		glm::vec3 GetPosition() { return _position; }
 		void SetPosition(glm::vec3 _pos) { _position = _pos; }
@@ -35,12 +35,15 @@ namespace myengine
 		float GetRotationZ() { return _rotation.z; }
 		void SetRotationZ(float _z) { _rotation.z = _z; }
 
+		glm::vec3 GetScale() { return _scale; }
+		void SetScale(glm::vec3 _s) { _scale = _s; }
+		void ChangeScale(glm::vec3 _s) { _scale += _s; }
+
 
 	private:
-		glm::mat4 _model_matrix;
 		glm::vec3 _position;
 		glm::vec3 _rotation;
+		glm::vec3 _scale;
 
-		void OnTick();
 	};
 }
