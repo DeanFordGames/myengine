@@ -17,7 +17,7 @@ namespace myengine
 
 		std::shared_ptr<Transform> t = GetEntity()->getComponent<Transform>();
 
-		t->ChangePosition(glm::vec3(0.1f, 0.0f, 0.0f));
+		t->ChangePosition(glm::vec3(0.001f, 0.0f, 0.0f));
 
 		r.model(t->GetModelMatrix());
 
