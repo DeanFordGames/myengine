@@ -1,5 +1,6 @@
 #include <memory>
 #include <vector>
+#include <stdexcept>
 
 namespace myengine
 {
@@ -18,12 +19,25 @@ namespace myengine
 			return rtn;
 		}
 
+		template <typename T>
+		std::shared_ptr<T> getComponent()
+		{
+			for (std::vector<std::shared_ptr<Component>>::iterator it = m_components.begin();
+				it != m_components.end(); ++it)
+			{
+				std::shared_ptr<T> rtn = std::dynamic_pointer_cast<T>((*it));
+				if (rtn)
+				{
+					return rtn;
+				}
+			}
+			throw std::runtime_error("Specified component not found");
+			
+		}
+
 		Entity() { 
 			m_alive = true; 
 		}
-
-		template <typename T>
-		std::shared_ptr<T> getComponent();
 
 		bool alive() { return m_alive; }
 

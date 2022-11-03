@@ -1,4 +1,6 @@
 #include "TriangleRenderer.h"
+#include "Transform.h"
+#include "Entity.h"
 
 namespace myengine
 {
@@ -12,6 +14,12 @@ namespace myengine
 	void TriangleRenderer::onDisplay()
 	{
 		rend::Renderer r(640, 480);
+
+		std::shared_ptr<Transform> t = GetEntity()->getComponent<Transform>();
+
+		t->ChangePosition(glm::vec3(0.1f, 0.0f, 0.0f));
+
+		r.model(t->GetModelMatrix());
 
 		r.shader(&m_shader);
 		r.mesh(&m_mesh);

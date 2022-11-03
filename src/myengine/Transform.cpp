@@ -8,7 +8,7 @@ namespace myengine
 		_position = glm::vec3(0.0f, 0.0f, 0.0f);
 		_rotation = glm::vec3(0.0f, 1.0f, 0.0f);
 		_scale = glm::vec3(1.0f, 1.0f, 1.0f);
+		_model_matrix = glm::mat4{ 1.0f };
 	}
-
 
 }
