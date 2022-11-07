@@ -9,7 +9,7 @@ namespace myengine
 
 	struct Component
 	{
-		std::shared_ptr<Entity> GetEntity() { return m_entity.lock(); }
+		std::shared_ptr<Entity> getEntity() { return m_entity.lock(); }
 
 	private:
 		virtual void onTick();

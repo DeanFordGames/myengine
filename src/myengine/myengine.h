@@ -6,5 +6,7 @@
 #include "Component.h"
 #include "TriangleRenderer.h"
 #include "Transform.h"
+#include "Enviroment.h"
+#include "Keyboard.h"
 
 #endif

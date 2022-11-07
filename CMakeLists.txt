@@ -61,6 +61,12 @@ add_library(myengine
 
 	src/myengine/Transform.h
 	src/myengine/Transform.cpp
+
+	src/myengine/Keyboard.h
+	src/myengine/Keyboard.cpp
+
+	src/myengine/Enviroment.h
+	src/myengine/Enviroment.cpp
 )
 
 target_link_libraries(myengine rend SDL2)

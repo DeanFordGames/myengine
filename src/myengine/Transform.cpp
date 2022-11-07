@@ -10,7 +10,7 @@ namespace myengine
 		_scale = glm::vec3(1.0f, 1.0f, 1.0f);
 	}
 
-	glm::mat4 Transform::GetModelMatrix()
+	glm::mat4 Transform::getModelMatrix()
 	{
 		glm::mat4 rtn = glm::mat4{ 1.0f };
 		rtn = glm::translate(rtn, _position);
