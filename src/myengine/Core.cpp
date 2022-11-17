@@ -13,6 +13,9 @@ namespace myengine
 		rtn->m_self = rtn;
 		rtn->m_running = false;
 
+		rtn->m_enviroment = std::make_shared<Enviroment>();
+		rtn->m_keyboard = std::make_shared<Keyboard>();
+
 		if (SDL_Init(SDL_INIT_VIDEO) < 0)
 		{
 			throw std::runtime_error("Failed to initialize SDL");
@@ -56,7 +59,13 @@ namespace myengine
 				{
 					m_running = false;
 				}
+				else if (event.type = SDL_KEYDOWN)
+				{
+
+				}
 			}
+
+			m_enviroment->tick();
 
 			for (auto it = m_entities.begin(); //auto = std::list<std::shared_ptr<Entity> >::iterator
 				it != m_entities.end(); ++it)
