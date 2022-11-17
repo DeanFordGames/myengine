@@ -8,5 +8,6 @@
 #include "Transform.h"
 #include "Enviroment.h"
 #include "Keyboard.h"
+#include "SoundSource.h"
 
 #endif

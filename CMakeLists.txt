@@ -67,11 +67,14 @@ add_library(myengine
 
 	src/myengine/Enviroment.h
 	src/myengine/Enviroment.cpp
+
+	src/myengine/SoundSource.h
+	src/myengine/SoundSource.cpp
 )
 
 target_link_libraries(myengine rend SDL2)
 
-target_link_libraries(myengine SDL2 SDL2main)
+target_link_libraries(myengine SDL2 SDL2main openal32)
 
 add_executable(game
 	src/game/main.cpp

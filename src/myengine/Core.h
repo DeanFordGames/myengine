@@ -1,6 +1,8 @@
 #include <memory>
 #include <list>
 #include <SDL2/SDL.h>
+#include <AL/al.h>
+#include <AL/alc.h>
 
 #include "Keyboard.h"
 #include "Enviroment.h"

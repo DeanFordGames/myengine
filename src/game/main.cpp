@@ -19,6 +19,7 @@ int main(int argc, char* argv[])
 	e->addComponent<Transform>();
 	e->addComponent<Player>();
 	e->addComponent<TriangleRenderer>();
+	e->addComponent<SoundSource>();
 
 	core->start();
 
