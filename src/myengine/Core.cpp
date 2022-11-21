@@ -143,6 +143,8 @@ namespace myengine
 
 		rtn->m_self = rtn;
 
+		rtn->m_core = m_self;
+
 		m_entities.push_back(rtn);
 
 		return rtn;

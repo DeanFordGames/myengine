@@ -35,6 +35,8 @@ namespace myengine
 			
 		}
 
+		std::shared_ptr<Core> getCore() { return m_core.lock(); }
+
 		Entity() { 
 			m_alive = true; 
 		}
@@ -51,6 +53,7 @@ namespace myengine
 		bool m_alive;
 
 		std::weak_ptr<Entity> m_self;
+		std::weak_ptr<Core> m_core;
 
 		friend struct Core;
 	};

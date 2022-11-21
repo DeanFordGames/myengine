@@ -27,7 +27,6 @@ namespace myengine
 
 		std::shared_ptr<Entity> addEntity();
 
-
 	private:
 		bool m_running;
 		std::list<std::shared_ptr<Entity> > m_entities;
@@ -35,7 +34,6 @@ namespace myengine
 		std::shared_ptr<Enviroment> m_enviroment;
 
 		std::weak_ptr<Core> m_self;
-
 
 		SDL_Window* m_window;
 		SDL_GLContext m_context;

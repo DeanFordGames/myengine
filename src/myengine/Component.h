@@ -6,10 +6,12 @@
 namespace myengine
 {
 	struct Entity;
+	struct Core;
 
 	struct Component
 	{
 		std::shared_ptr<Entity> getEntity() { return m_entity.lock(); }
+
 
 	private:
 		virtual void onTick();
@@ -19,6 +21,7 @@ namespace myengine
 		void display();
 
 		friend struct Entity;
+
 
 		std::weak_ptr<Entity> m_entity;
 	};
