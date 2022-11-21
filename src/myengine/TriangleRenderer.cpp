@@ -2,6 +2,8 @@
 #include "Transform.h"
 #include "Entity.h"
 
+#include <iostream>
+
 namespace myengine
 {
 
@@ -17,7 +19,12 @@ namespace myengine
 
 		std::shared_ptr<Transform> t = getEntity()->getComponent<Transform>();
 
-		t->changeRotation(glm::vec3(0.1f, 0.1f, 0.1f));
+		t->changeRotation(glm::vec3(100.0f, 100.0f, 100.0f) * getCore()->getEnviroment()->GetDeltaTime());
+
+		if (getKeyboard()->getKey(KeyCodes::w))
+		{
+			std::cout << "wwww" << std::endl;
+		}
 
 		r.model(t->getModelMatrix());
 

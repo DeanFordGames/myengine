@@ -89,9 +89,13 @@ namespace myengine
 				{
 					m_running = false;
 				}
-				else if (event.type = SDL_KEYDOWN)
+				else if (event.type == SDL_KEYDOWN)
 				{
-
+					m_keyboard->getKeyDown(event.key.keysym.sym);
+				}
+				else if (event.type == SDL_KEYUP)
+				{
+					m_keyboard->getKeyUp(event.key.keysym.sym);
 				}
 			}
 

@@ -1,3 +1,6 @@
+#ifndef MYENGINE_CORE_H
+#define MYENGINE_CORE_H
+
 #include <memory>
 #include <list>
 #include <SDL2/SDL.h>
@@ -27,6 +30,9 @@ namespace myengine
 
 		std::shared_ptr<Entity> addEntity();
 
+		std::shared_ptr<Enviroment> getEnviroment() { return m_enviroment; }
+		std::shared_ptr<Keyboard> getKeyboard() { return m_keyboard; }
+
 	private:
 		bool m_running;
 		std::list<std::shared_ptr<Entity> > m_entities;
@@ -40,3 +46,5 @@ namespace myengine
 	};
 
 }
+
+#endif // !MYENGINE_CORE_H

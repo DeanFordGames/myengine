@@ -1,3 +1,7 @@
+#ifndef MYENGINE_ENTITY_H
+#define MYENGINE_ENTITY_H
+
+
 #include <memory>
 #include <vector>
 #include <stdexcept>
@@ -59,3 +63,5 @@ namespace myengine
 	};
 
 }
+
+#endif

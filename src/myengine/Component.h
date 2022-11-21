@@ -3,14 +3,21 @@
 
 #include <memory>
 
+#include "Entity.h"
+#include "Enviroment.h"
+#include "Keyboard.h"
+#include "Core.h"
+
 namespace myengine
 {
-	struct Entity;
-	struct Core;
 
 	struct Component
 	{
 		std::shared_ptr<Entity> getEntity() { return m_entity.lock(); }
+		std::shared_ptr<Core> getCore() { return m_entity.lock()->getCore(); }
+		std::shared_ptr<Enviroment> getEnviroment() { return getCore()->getEnviroment(); }
+		std::shared_ptr<Keyboard> getKeyboard() { return getCore()->getKeyboard(); }
+
 
 
 	private:
