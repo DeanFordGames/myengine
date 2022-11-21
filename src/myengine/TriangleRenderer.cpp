@@ -19,11 +19,23 @@ namespace myengine
 
 		std::shared_ptr<Transform> t = getEntity()->getComponent<Transform>();
 
-		t->changeRotation(glm::vec3(100.0f, 100.0f, 100.0f) * getCore()->getEnviroment()->GetDeltaTime());
+		t->changeRotation(glm::vec3(100.0f, 100.0f, 100.0f) * getEnviroment()->GetDeltaTime());
 
 		if (getKeyboard()->getKey(KeyCodes::w))
 		{
-			std::cout << "wwww" << std::endl;
+			t->changePosition(glm::vec3(0.0f, 1.0f, 0.0f) * getEnviroment()->GetDeltaTime());
+		}
+		if (getKeyboard()->getKey(KeyCodes::s))
+		{
+			t->changePosition(glm::vec3(0.0f, -1.0f, 0.0f) * getEnviroment()->GetDeltaTime());
+		}
+		if (getKeyboard()->getKey(KeyCodes::a))
+		{
+			t->changePosition(glm::vec3(-1.0f, 0.0f, 0.0f) * getEnviroment()->GetDeltaTime());
+		}
+		if (getKeyboard()->getKey(KeyCodes::d))
+		{
+			t->changePosition(glm::vec3(1.0f, 0.0f, 0.0f) * getEnviroment()->GetDeltaTime());
 		}
 
 		r.model(t->getModelMatrix());

@@ -70,6 +70,9 @@ add_library(myengine
 
 	src/myengine/SoundSource.h
 	src/myengine/SoundSource.cpp
+
+	src/myengine/Resource.h
+	src/myengine/Resource.cpp
 )
 
 target_link_libraries(myengine rend SDL2)
