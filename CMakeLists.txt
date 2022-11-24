@@ -73,6 +73,12 @@ add_library(myengine
 
 	src/myengine/Resource.h
 	src/myengine/Resource.cpp
+
+	src/myengine/BoxCollider.h
+	src/myengine/BoxCollider.cpp
+
+	src/myengine/RigidBody.h
+	src/myengine/RigidBody.cpp
 )
 
 target_link_libraries(myengine rend SDL2)

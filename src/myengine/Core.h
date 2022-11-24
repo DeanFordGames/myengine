@@ -33,6 +33,10 @@ namespace myengine
 		std::shared_ptr<Enviroment> getEnviroment() { return m_enviroment; }
 		std::shared_ptr<Keyboard> getKeyboard() { return m_keyboard; }
 
+		template <typename T>
+		void find(std::vector<std::shared_ptr<T>>& _out);
+
+
 	private:
 		bool m_running;
 		std::list<std::shared_ptr<Entity> > m_entities;

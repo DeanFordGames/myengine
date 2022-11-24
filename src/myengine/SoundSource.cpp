@@ -57,7 +57,7 @@ namespace myengine
 		ALenum format = 0;
 		ALsizei freq = 0;
 		std::vector<unsigned char> bufferData;
-		load_ogg("../f.ogg", bufferData, format, freq);
+		load_ogg("../bfg.ogg", bufferData, format, freq);
 
 		ALuint bufferId = 0;
 		alGenBuffers(1, &bufferId);

@@ -9,5 +9,6 @@
 #include "Enviroment.h"
 #include "Keyboard.h"
 #include "SoundSource.h"
+#include "BoxCollider.h"
 
 #endif
