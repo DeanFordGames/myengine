@@ -36,7 +36,6 @@ namespace myengine
 		template <typename T>
 		void find(std::vector<std::shared_ptr<T>>& _out);
 
-
 	private:
 		bool m_running;
 		std::list<std::shared_ptr<Entity> > m_entities;

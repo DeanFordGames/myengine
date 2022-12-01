@@ -10,7 +10,7 @@ namespace myengine
 	TriangleRenderer::TriangleRenderer() :
 		m_shader("../data/shaders/basic.vert", "../data/shaders/basic.frag")
 	{
-		m_mesh.loadQuad();
+		m_mesh.loadTriangle();
 	}
 
 	void TriangleRenderer::onDisplay()
@@ -36,6 +36,16 @@ namespace myengine
 		if (getKeyboard()->getKey(KeyCodes::d))
 		{
 			t->changePosition(glm::vec3(1.0f, 0.0f, 0.0f) * getEnviroment()->GetDeltaTime());
+		}
+
+
+		if (getKeyboard()->getKey(KeyCodes::q))
+		{
+			t->changeScale(glm::vec3(1.0f, 1.0f, 1.0f) * getEnviroment()->GetDeltaTime());
+		}
+		if (getKeyboard()->getKey(KeyCodes::e))
+		{
+			t->changeScale(glm::vec3(-1.0f, -1.0f, -1.0f) * getEnviroment()->GetDeltaTime());
 		}
 
 		r.model(t->getModelMatrix());

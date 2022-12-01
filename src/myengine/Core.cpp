@@ -76,6 +76,7 @@ namespace myengine
 		SDL_Quit();
 	}
 
+
 	void Core::start()
 	{
 		SDL_Event event = { 0 };
