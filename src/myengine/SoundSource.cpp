@@ -73,7 +73,7 @@ namespace myengine
 
 		alSourcei(sourceId, AL_BUFFER, bufferId);
 		//alSource3f(sourceId, AL_POSITION, 0.0f, 0.0f, 0.0f);
-		//alSourcef(sourceId, AL_PITCH, 10);
+		alSourcef(sourceId, AL_PITCH, 1.0);
 		//alSourcef(sourceId, AL_GAIN, vol);
 
 		/*************************************************************************

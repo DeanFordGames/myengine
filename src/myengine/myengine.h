@@ -10,5 +10,6 @@
 #include "Keyboard.h"
 #include "SoundSource.h"
 #include "BoxCollider.h"
+#include "IrcComponent.h"
 
 #endif

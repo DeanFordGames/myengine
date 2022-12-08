@@ -80,11 +80,14 @@ project(MYENGINE)
 
 		src/myengine/RigidBody.h
 		src/myengine/RigidBody.cpp
+
+		src/myengine/IrcComponent.h
+		src/myengine/IrcComponent.cpp
 	)
 
 	target_link_libraries(myengine rend SDL2)
 
-	target_link_libraries(myengine SDL2 SDL2main openal32)
+	target_link_libraries(myengine SDL2 SDL2main openal32 ws2_32)
 
 
 add_executable(game

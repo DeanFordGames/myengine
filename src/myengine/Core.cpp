@@ -4,8 +4,13 @@
 #include <AL/al.h>
 #include <AL/alc.h>
 
-#include<stdexcept>
+#include <stdexcept>
 
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+
+#include <ws2tcpip.h>
+#include <winsock2.h>
 
 namespace myengine
 {
@@ -65,6 +70,16 @@ namespace myengine
 
 		alListener3f(AL_POSITION, 0.0f, 0.0f, 0.0f);
 		//alListener3f(AL_VELOCITY, 0.0f, 0.0f, 0.0f);
+
+		WSADATA wsaData;
+
+		int iResult = WSAStartup(MAKEWORD(2, 2), &wsaData);
+
+		if (iResult != 0)
+		{
+			throw std::runtime_error("WSAStartup failed");
+		}
+
 
 		return rtn;
 	}

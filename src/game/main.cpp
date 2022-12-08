@@ -20,6 +20,7 @@ int main(int argc, char* argv[])
 	e->addComponent<Player>();
 	e->addComponent<TriangleRenderer>();
 	e->addComponent<SoundSource>();
+	e->addComponent<IrcComponent>();
 
 	core->start();
 
