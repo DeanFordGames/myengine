@@ -18,8 +18,12 @@ int main(int argc, char* argv[])
 	std::shared_ptr<Entity> e = core->addEntity();
 	e->addComponent<Transform>();
 	e->addComponent<Player>();
-	e->addComponent<TriangleRenderer>();
-	e->addComponent<SoundSource>();
+	std::shared_ptr<TriangleRenderer> tr = e->addComponent<TriangleRenderer>();
+	tr->setTexture(core->getResources()->load<Texture>("dirt.jpg"));
+
+	std::shared_ptr<SoundSource> audio = e->addComponent<SoundSource>();
+	audio->setAudio(core->getResources()->load<Audio>("bfg.ogg"));
+
 	e->addComponent<IrcComponent>();
 
 	core->start();

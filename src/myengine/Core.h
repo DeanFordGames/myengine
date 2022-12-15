@@ -9,6 +9,7 @@
 
 #include "Keyboard.h"
 #include "Enviroment.h"
+#include "Resources.h"
 
 #include <rend/rend.h>
 
@@ -32,6 +33,7 @@ namespace myengine
 
 		std::shared_ptr<Enviroment> getEnviroment() { return m_enviroment; }
 		std::shared_ptr<Keyboard> getKeyboard() { return m_keyboard; }
+		std::shared_ptr<Resources> getResources() { return m_resources; }
 
 		template <typename T>
 		void find(std::vector<std::shared_ptr<T>>& _out);
@@ -41,6 +43,7 @@ namespace myengine
 		std::list<std::shared_ptr<Entity> > m_entities;
 		std::shared_ptr<Keyboard> m_keyboard;
 		std::shared_ptr<Enviroment> m_enviroment;
+		std::shared_ptr<Resources> m_resources;
 
 		std::weak_ptr<Core> m_self;
 

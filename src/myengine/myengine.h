@@ -11,5 +11,7 @@
 #include "SoundSource.h"
 #include "BoxCollider.h"
 #include "IrcComponent.h"
+#include "Audio.h"
+#include "Texture.h"
 
 #endif

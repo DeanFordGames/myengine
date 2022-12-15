@@ -86,6 +86,12 @@ project(MYENGINE)
 
 		src/myengine/IrcComponent.h
 		src/myengine/IrcComponent.cpp
+
+		src/myengine/Audio.h
+		src/myengine/Audio.cpp
+
+		src/myengine/Texture.h
+		src/myengine/Texture.cpp
 	)
 
 	target_link_libraries(myengine rend SDL2)

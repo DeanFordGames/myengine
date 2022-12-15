@@ -23,6 +23,7 @@ namespace myengine
 
 		rtn->m_enviroment = std::make_shared<Enviroment>();
 		rtn->m_keyboard = std::make_shared<Keyboard>();
+		rtn->m_resources = std::make_shared<Resources>();
 
 		if (SDL_Init(SDL_INIT_VIDEO) < 0)
 		{

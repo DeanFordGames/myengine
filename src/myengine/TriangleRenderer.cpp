@@ -1,6 +1,7 @@
 #include "TriangleRenderer.h"
 #include "Transform.h"
 #include "Entity.h"
+#include "Texture.h"
 
 #include <iostream>
 
@@ -52,8 +53,14 @@ namespace myengine
 
 		r.shader(&m_shader);
 		r.mesh(&m_mesh);
+		r.texture(m_texture->m_texture.get());
 
 		r.render();
+	}
+
+	void TriangleRenderer::setTexture(std::shared_ptr<Texture> _texture)
+	{
+		m_texture = _texture;
 	}
 
 }
