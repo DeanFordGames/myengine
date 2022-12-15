@@ -75,6 +75,9 @@ project(MYENGINE)
 		src/myengine/Resource.h
 		src/myengine/Resource.cpp
 
+		src/myengine/Resources.h
+		src/myengine/Resources.cpp
+
 		src/myengine/BoxCollider.h
 		src/myengine/BoxCollider.cpp
 
