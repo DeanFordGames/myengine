@@ -215,7 +215,7 @@ project(MYENGINE)
 		  src/pellet/LinearMath/btSerializer.cpp
 		  src/pellet/LinearMath/btThreads.cpp
 		  src/pellet/LinearMath/btVector3.cpp
-)
+	)
 
 	add_library(myengine
 		src/myengine/myengine.h
@@ -264,9 +264,12 @@ project(MYENGINE)
 
 		src/myengine/Texture.h
 		src/myengine/Texture.cpp
+
+		src/myengine/ModelRenderer.h
+		src/myengine/ModelRenderer.cpp
 	)
 
-	target_link_libraries(myengine rend SDL2 pellet)
+	target_link_libraries(myengine rend pellet SDL2)
 
 	target_link_libraries(myengine SDL2 SDL2main openal32 ws2_32)
 

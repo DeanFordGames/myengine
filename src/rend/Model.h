@@ -8,6 +8,8 @@
 #include "sys/Vector.h"
 #include "sys/Zero.h"
 
+#include <string>
+
 namespace rend
 {
 	struct Texture;
@@ -28,6 +30,10 @@ struct Part : sys::EnablePtr
 
 struct Model : sys::EnablePtr
 {
+	Model()
+	{
+	}
+
   Model(const sys::String& _path);
 
   sys::List<Part>::Iterator partsBegin();
