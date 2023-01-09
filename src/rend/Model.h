@@ -8,8 +8,6 @@
 #include "sys/Vector.h"
 #include "sys/Zero.h"
 
-#include <string>
-
 namespace rend
 {
 	struct Texture;

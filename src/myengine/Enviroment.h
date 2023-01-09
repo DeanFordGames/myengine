@@ -10,12 +10,15 @@ namespace myengine
 
 		float GetDeltaTime() { return deltaTime; }
 
+		/**
+		* tick set next deltaTime
+		*/
 		void tick();
 
 	private:
 
-		float deltaTime;
-		float lastTime;
+		float deltaTime; ///< time since last frame
+		float lastTime; ///< last frames time
 
 	};
 }

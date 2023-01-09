@@ -13,5 +13,8 @@
 #include "IrcComponent.h"
 #include "Audio.h"
 #include "Texture.h"
+#include "ModelRenderer.h"
+#include "Model.h"
+#include "RigidBody.h"
 
 #endif

@@ -20,6 +20,7 @@ struct ModelRenderer : Renderer
   void model(sys::Ptr<Model> _model);
   void animation(sys::Ptr<Animation> _animation);
   void frame(float _frame);
+  void modelMatrix(mat4 _model) { m_model = _model; }
 
   sys::Ptr<Part> intersect(const Ray& _ray, float& _distance) const;
 

@@ -10,9 +10,15 @@ namespace myengine
 {
 	struct Component;
 	struct Core;
-
+	/**
+	* Entity struct for all the objects in the scene
+	*/
 	struct Entity
 	{
+		/**
+		* addComponent adds a component to component vector of typename T
+		* \return returns the added component
+		*/
 		template <typename T>
 		std::shared_ptr<T> addComponent()
 		{
@@ -22,7 +28,10 @@ namespace myengine
 
 			return rtn;
 		}
-
+		/**
+		* getComponent searches through all components in entity
+		* \return returns the required component
+		*/
 		template <typename T>
 		std::shared_ptr<T> getComponent()
 		{
@@ -39,25 +48,38 @@ namespace myengine
 			
 		}
 
+
 		std::shared_ptr<Core> getCore() { return m_core.lock(); }
 
+		/**
+		* Entity initalize entity as alive
+		*/
 		Entity() { 
 			m_alive = true; 
 		}
 
 		bool alive() { return m_alive; }
 
+		/**
+		* tick update function for all entities
+		*/
 		void tick();
+		/**
+		* display update graphics function for all entities
+		*/
 		void display();
+		/**
+		* kill clean up entity when killed
+		*/
 		void kill();
 
 	private:
-		std::vector<std::shared_ptr<Component> > m_components;
+		std::vector<std::shared_ptr<Component> > m_components; ///< vector of entities component
 
-		bool m_alive;
+		bool m_alive; ///< check if entity is still alive
 
-		std::weak_ptr<Entity> m_self;
-		std::weak_ptr<Core> m_core;
+		std::weak_ptr<Entity> m_self; ///< pointer to itself
+		std::weak_ptr<Core> m_core; ///< pointer to core
 
 		friend struct Core;
 	};

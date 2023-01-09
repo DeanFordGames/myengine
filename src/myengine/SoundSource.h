@@ -8,17 +8,23 @@ namespace myengine
 {
 	struct Audio;
 
+	/**
+	* Component handles the sound for the Entity 
+	*/
 	struct SoundSource : Component
 	{
 
 		SoundSource();
+		/**
+		* setAudio used to set the required audio resource
+		*/
 		void setAudio(std::shared_ptr<Audio> _audio);
 
 	private:
 
 		void onTick();
 
-		ALuint sourceId;
+		ALuint sourceId; ///< Id for the current sound
 
 	};
 

@@ -267,6 +267,12 @@ project(MYENGINE)
 
 		src/myengine/ModelRenderer.h
 		src/myengine/ModelRenderer.cpp
+
+		src/myengine/Model.h
+		src/myengine/Model.cpp
+
+		src/myengine/Physics.h
+		src/myengine/Physics.cpp
 	)
 
 	target_link_libraries(myengine rend pellet SDL2)

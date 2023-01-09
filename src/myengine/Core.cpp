@@ -24,6 +24,7 @@ namespace myengine
 		rtn->m_enviroment = std::make_shared<Enviroment>();
 		rtn->m_keyboard = std::make_shared<Keyboard>();
 		rtn->m_resources = std::make_shared<Resources>();
+		rtn->m_physics = std::make_shared<Physics>();
 
 		if (SDL_Init(SDL_INIT_VIDEO) < 0)
 		{
@@ -117,6 +118,7 @@ namespace myengine
 			}
 
 			m_enviroment->tick();
+			m_physics->tick();
 
 			for (auto it = m_entities.begin(); //auto = std::list<std::shared_ptr<Entity> >::iterator
 				it != m_entities.end(); ++it)
@@ -169,25 +171,6 @@ namespace myengine
 		m_entities.push_back(rtn);
 
 		return rtn;
-	}
-
-	template <typename T>
-	void Core::find(std::vector<std::shared_ptr<T>>& _out)
-	{
-		for (size_t ei = 0; ei < m_entities.size(); ++ei)
-		{
-			std::shared_ptr<Entity> e = m_entities[ei];
-
-			for (size_t ci = 0; ci < e->m_components.size(); ++ci)
-			{
-				std::shared_ptr<Component> c = e->m_components[ci];
-
-				std::shared_ptr<T> t = std::dynamic_pointer_cast<T>(c);
-
-				if (t)
-					_out.push_back(t);
-			}
-		}
 	}
 
 }

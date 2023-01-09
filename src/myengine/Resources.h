@@ -8,7 +8,11 @@ namespace myengine
 {
 	struct Resources
 	{
-
+		/**
+		* load used to load the resources
+		* \param _path the required path to resource
+		* \return the required resource
+		*/
 		template <typename T>
 		std::shared_ptr<T> load(const std::string& _path)
 		{
@@ -35,6 +39,6 @@ namespace myengine
 
 	private:
 
-		std::vector<std::shared_ptr<Resource>> m_resources;
+		std::vector<std::shared_ptr<Resource>> m_resources; ///< a vector of all loaded resources
 	};
 }
