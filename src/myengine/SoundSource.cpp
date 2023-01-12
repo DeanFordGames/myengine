@@ -12,15 +12,14 @@ namespace myengine
 
 	SoundSource::SoundSource()
 	{
-		/*************************************************************************
-		 * Preparing sound source
-		 *************************************************************************/
+		//prepare sound source
 		sourceId = 0;
 		alGenSources(1, &sourceId);
 	}
 
 	void SoundSource::onTick()
 	{
+		//sets position of sound
 		std::shared_ptr<Transform> t = getEntity()->getComponent<Transform>();
 
 		glm::vec3 pos = t->getPosition();
@@ -34,12 +33,11 @@ namespace myengine
 		alSourcei(sourceId, AL_BUFFER, _audio->m_id);
 
 		//alSource3f(sourceId, AL_POSITION, 0.0f, 0.0f, 0.0f);
+		//set speed of sound
 		alSourcef(sourceId, AL_PITCH, 1.0);
 		//alSourcef(sourceId, AL_GAIN, vol);
 
-		/*************************************************************************
-		 * Play audio
-		 *************************************************************************/
+		//play sound
 		alSourcePlay(sourceId);
 	}
 }

@@ -20,17 +20,19 @@ namespace myengine
 
 		rtn->m_self = rtn;
 		rtn->m_running = false;
-
+		//create all extra objects
 		rtn->m_enviroment = std::make_shared<Enviroment>();
-		rtn->m_keyboard = std::make_shared<Keyboard>();
 		rtn->m_resources = std::make_shared<Resources>();
 		rtn->m_physics = std::make_shared<Physics>();
+		rtn->m_keyboard = std::make_shared<Keyboard>();
+		rtn->m_camera = std::make_shared<Camera>();
 
+		//initialize SDL
 		if (SDL_Init(SDL_INIT_VIDEO) < 0)
 		{
 			throw std::runtime_error("Failed to initialize SDL");
 		}
-
+		//create window
 		if (!(rtn->m_window = SDL_CreateWindow("SLD2 Platform",
 			SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
 			INITIAL_WIDTH, INITIAL_HEIGHT, SDL_WINDOW_RESIZABLE | SDL_WINDOW_OPENGL)))
@@ -38,7 +40,7 @@ namespace myengine
 			SDL_Quit();
 			throw std::runtime_error("Failed to create window");
 		}
-
+		//create context 
 		if (!(rtn->m_context = SDL_GL_CreateContext(rtn->m_window)))
 		{
 			SDL_DestroyWindow(rtn->m_window);
@@ -47,7 +49,7 @@ namespace myengine
 		}
 
 
-
+		//set up audio
 		ALCdevice* device = alcOpenDevice(NULL);
 
 		if (!device)
@@ -73,6 +75,7 @@ namespace myengine
 		alListener3f(AL_POSITION, 0.0f, 0.0f, 0.0f);
 		//alListener3f(AL_VELOCITY, 0.0f, 0.0f, 0.0f);
 
+		//ircComponent setup
 		WSADATA wsaData;
 
 		int iResult = WSAStartup(MAKEWORD(2, 2), &wsaData);
@@ -98,32 +101,49 @@ namespace myengine
 	{
 		SDL_Event event = { 0 };
 		m_running = true;
+		//set mouse invisible and center of screen
+		SDL_SetRelativeMouseMode(SDL_bool::SDL_TRUE);
 
 		while (m_running)
 		{
 			while (SDL_PollEvent(&event))
-			{
+			{//when windows closed close loop
 				if (event.type == SDL_QUIT)
 				{
 					m_running = false;
 				}
-				else if (event.type == SDL_KEYDOWN)
+				else if (event.type == SDL_KEYDOWN)//key events
 				{
-					m_keyboard->getKeyDown(event.key.keysym.sym);
+					m_keyboard->setKeyDown(event.key.keysym.sym);
 				}
 				else if (event.type == SDL_KEYUP)
 				{
-					m_keyboard->getKeyUp(event.key.keysym.sym);
+					m_keyboard->setKeyUp(event.key.keysym.sym);
+				}
+				else if (event.type = SDL_MOUSEMOTION)//mouse events
+				{
+					int x = 0;
+					int y = 0;
+					SDL_GetRelativeMouseState(&x, &y);
+					m_keyboard->setMouseMovement(x, y);
 				}
 			}
 
+			//call all tick functions for entities and extra structs
 			m_enviroment->tick();
 			m_physics->tick();
+			m_camera->tick();
 
-			for (auto it = m_entities.begin(); //auto = std::list<std::shared_ptr<Entity> >::iterator
-				it != m_entities.end(); ++it)
+			//changed because iterator doesnt like adding entities
+			//for (auto it = m_entities.begin(); //auto = std::vector<std::shared_ptr<Entity> >::iterator
+			//	it != m_entities.end(); ++it)
+			//{
+			//	(*it)->tick();
+			//}
+
+			for (int i = 0; i < m_entities.size(); i++)
 			{
-				(*it)->tick();
+				m_entities.at(i)->tick();
 			}
 
 			auto itr = m_entities.begin();
@@ -139,16 +159,16 @@ namespace myengine
 				}
 			}
 
-
+			//clear all rendering before rendering next frame
 			rend::Renderer r(INITIAL_WIDTH, INITIAL_HEIGHT);
 			r.clear();
-
+			//call all diplay functions for each entity
 			for (auto it = m_entities.begin(); //auto = std::list<std::shared_ptr<Entity> >::iterator
 				it != m_entities.end(); ++it)
 			{
 				(*it)->display();
 			}
-
+			//swap frame buffer
 			SDL_GL_SwapWindow(m_window);
 
 

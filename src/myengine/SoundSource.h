@@ -13,7 +13,9 @@ namespace myengine
 	*/
 	struct SoundSource : Component
 	{
-
+		/**
+		* SoundSource creates the source id
+		*/
 		SoundSource();
 		/**
 		* setAudio used to set the required audio resource

@@ -22,7 +22,7 @@ namespace myengine
 	}
 
 	void Physics::tick()
-	{
+	{//calculate all physics for world
 		m_world->stepSimulation(1.0f / 60.0f, 10);
 	}
 

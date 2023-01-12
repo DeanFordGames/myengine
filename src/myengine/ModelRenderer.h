@@ -13,6 +13,9 @@ namespace myengine
 	*/
 	struct ModelRenderer : Component
 	{
+		/**
+		* ModelRenderer sets the shaders
+		*/
 		ModelRenderer();
 
 		/**
@@ -22,7 +25,7 @@ namespace myengine
 		/**
 		* setTexture used to set the texture resource required
 		*/
-		void steTexture(std::shared_ptr<Texture> _texture);
+		void setTexture(std::shared_ptr<Texture> _texture);
 
 	private:
 		rend::Shader m_shader; ///< basic shaders required for rendering

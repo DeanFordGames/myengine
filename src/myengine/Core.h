@@ -11,6 +11,7 @@
 #include "Enviroment.h"
 #include "Resources.h"
 #include "Physics.h"
+#include "Camera.h"
 
 #include <rend/rend.h>
 
@@ -51,6 +52,7 @@ namespace myengine
 		std::shared_ptr<Keyboard> getKeyboard() { return m_keyboard; }
 		std::shared_ptr<Resources> getResources() { return m_resources; }
 		std::shared_ptr<Physics> getPhysics() { return m_physics; }
+		std::shared_ptr<Camera> getCamera() { return m_camera; }
 
 		/**
 		* find all components of a certain type
@@ -82,6 +84,7 @@ namespace myengine
 		std::shared_ptr<Enviroment> m_enviroment; ///< pointer to enviroment
 		std::shared_ptr<Resources> m_resources; ///< pointer to all resources
 		std::shared_ptr<Physics> m_physics; ///< pointer to the world physics
+		std::shared_ptr<Camera> m_camera;
 
 		std::weak_ptr<Core> m_self; ///< pointer to its self
 

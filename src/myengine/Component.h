@@ -20,6 +20,7 @@ namespace myengine
 		std::shared_ptr<Enviroment> getEnviroment() { return getCore()->getEnviroment(); }
 		std::shared_ptr<Keyboard> getKeyboard() { return getCore()->getKeyboard(); }
 		std::shared_ptr<Physics> getPhysics() { return getCore()->getPhysics(); }
+		std::shared_ptr<Camera> getCamera() { return getCore()->getCamera(); }
 
 
 

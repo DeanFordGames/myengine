@@ -273,6 +273,9 @@ project(MYENGINE)
 
 		src/myengine/Physics.h
 		src/myengine/Physics.cpp
+
+		src/myengine/Camera.h
+		src/myengine/Camera.cpp
 	)
 
 	target_link_libraries(myengine rend pellet SDL2)
@@ -282,6 +285,15 @@ project(MYENGINE)
 
 add_executable(game
 	src/game/main.cpp
+
+	src/game/Player.h
+	src/game/Player.cpp
+
+	src/game/Handler.h
+	src/game/Handler.cpp
+
+	src/game/Enemy.h
+	src/game/Enemy.cpp
 )
 
 target_link_libraries(game myengine)

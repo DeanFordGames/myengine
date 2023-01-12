@@ -11,6 +11,9 @@ namespace myengine
 	*/
 	struct TriangleRenderer : Component
 	{
+		/**
+		* TriangleRenderer initializes the shaders and mesh
+		*/
 		TriangleRenderer();
 		/**
 		* setTexture to set the required texture resource 
@@ -22,6 +25,9 @@ namespace myengine
 		rend::Shader m_shader; ///< basic shaders required to render
 		std::shared_ptr<Texture> m_texture; ///< pointer to texture resource
 
+		/**
+		* onDisplay called each frame to update triangle
+		*/
 		void onDisplay();
 	};
 

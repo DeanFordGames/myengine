@@ -1,7 +1,6 @@
 #pragma once
 #include <vector>
 #include <SDL2/SDL_keycode.h>
-#include <iostream>
 
 namespace myengine
 {
@@ -51,22 +50,51 @@ namespace myengine
 		* getKeyDown set key as down
 		* \param key keycode for what key has been pressed
 		*/
-		void getKeyDown(int key){ m_keys[key] = true; }
+		void setKeyDown(int _key) {
+			if (_key < 322) 
+			{ 
+				if (!m_keys[_key]) { m_keys[_key] = true; m_keyDown[_key] = true; } 
+			} 
+		}
+
+		bool getKeyDown(KeyCodes _keyCode) { bool rtn = m_keyDown[int(_keyCode)]; m_keyDown[int(_keyCode)] = false; return rtn; }
 		/**
 		* getKeyUp set key as up
 		* \param key keycode for what key has been pressed
 		*/
-		void getKeyUp(int key){ m_keys[key] = false; }
+		void setKeyUp(int _key) {
+			if (_key < 322) 
+			{ 
+				if (m_keys[_key]) { m_keys[_key] = false; m_keyUp[_key] = true; }
+			}
+	}
+
+		bool getKeyUp(KeyCodes _keyCode) { bool rtn = m_keyUp[int(_keyCode)]; m_keyUp[int(_keyCode)] = false; return rtn; }
 		/**
 		* getKey returns a keycode if its true or false
 		* \param keyCode
 		* \return true or false if key is pressed down
 		*/
-		bool getKey(KeyCodes keyCode) { return m_keys[int(keyCode)]; }
+		bool getKey(KeyCodes _keyCode) { return m_keys[int(_keyCode)]; }
+
+		void setMouseMovement(float _x, float _y);
+
+		/**
+		* getMouseX returns mouseX and resets to zero to not give multiple of the same input
+		*/
+		float getMouseX() { float rtn = m_mouseX; m_mouseX = 0; return rtn; }
+		/**
+		* getMouseY returns mouseY and resets to zero to not give multiple of the same input
+		*/
+		float getMouseY() { float rtn = m_mouseY; m_mouseY = 0; return rtn; }
 
 	private:
 
 		bool m_keys[322]; ///< array of bool checks for each key
+		bool m_keyDown[322]; ///< array of bool for single input down key
+		bool m_keyUp[322];///< array of bool for single input up key
 
+		float m_mouseX; ///< x axis of mouse movement
+		float m_mouseY; ///< y axis od mouse movement
 	};
 }

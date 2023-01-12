@@ -10,17 +10,18 @@ namespace myengine
 
 	struct BoxCollider : Component
 	{
+		/**
+		* BoxCollider sets initial size of collider
+		*/
 		BoxCollider();
+		/**
+		* initialize creates collider
+		*/
 		void initialize();
 
 		std::shared_ptr<btCollisionShape> getCollider() { return m_collider; }
 
 	//////////////////////////////////////////////////////////////////////////
-		/**
-		* colliding runs through all colliders to check collisions
-		*/
-		bool colliding(BoxCollider& _other);
-
 		glm::vec3 getSize() { return m_size; }
 		void setSize(glm::vec3 size) { m_size = size; }
 		void changeSize(glm::vec3 size) { m_size += size; }
@@ -34,7 +35,7 @@ namespace myengine
 		glm::vec3 m_size; ///< scale of the box collider
 		glm::vec3 m_offset; ///< offset for the 
 
-		std::shared_ptr<btCollisionShape> m_collider;
+		std::shared_ptr<btCollisionShape> m_collider;///< pointer to the bullet physics collider
 	};
 
 }
